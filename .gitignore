@@ -105,5 +105,6 @@ venv.bak/
 
 images/bse/*.png
 images/upload/*.png
+images/heatmap/*.png
 xray_classifier/model/*
 .DS_Store

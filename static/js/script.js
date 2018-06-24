@@ -23,6 +23,14 @@ $(function() {
                 $("#bse_prob").text(prob.toFixed(2)+"%");
                 $("#image_origin").attr("src",data.origin)
                 $("#image_bse").attr("src",data.bse)
+                $("#image_heatmap").attr("src",data.heatmap)
+                var html = '<tr><th>Bệnh</th><th>Xác suất mắc bệnh</th></tr>'
+                Object.keys(data.results).forEach(function(e) {
+                    var path = e;
+                    var predict = data.results[e] * 100;
+                    html += '<tr><td>'+path+'</td><td>'+predict.toFixed(2)+'%</td></tr>'
+                })
+                $("table#result").html(html);
                 $('#result').show();
             },
         });
