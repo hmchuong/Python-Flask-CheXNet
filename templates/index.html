@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chẩn đoán bệnh trên ảnh X-quang phổi</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+<h3 style="text-align: center;">TRƯỜNG ĐẠI HỌC KHOA HỌC TỰ NHIÊN <br> KHOA CÔNG NGHỆ THÔNG TIN<br> LỚP CỬ NHÂN TÀI NĂNG </h3>
+<!--<hr style="align-self: center;width: 150px"> -->
+<br>
+<h3 style="text-align: center;">HUỲNH MINH CHƯƠNG - 1412060 <br> NGUYỄN TRUNG HIẾU - 1412165</h3>
+<!--<hr style="align-self: center;width: 250px">-->
+
+<h3 style="text-align: center;">GIÁO VIÊN HƯỚNG DẪN <br> PGS.TS TRẦN MINH TRIẾT</h3>
+<br>
+<h1 style="text-align: center;">ÁP DỤNG MÔ HÌNH HỌC SÂU <br> TRONG CHẨN ĐOÁN BỆNH TRÊN ẢNH X-QUANG PHỔI</h1>
+<br>
+<hr style="align-self: center;width: 450px">
+<br>
+
+
+<form style="align-self: center;text-align: center; margin-bottom: 50px;" id="upload-file" method="post" enctype="multipart/form-data">
+	<input name="file" type="file" accept="image/png">
+  <button id="upload-file-btn" type="button">Upload</button>
+</form>
+<div id="loading" class="loader" style="display:none;"></div>
+<div id="result">
+	<p style="padding-left: 300px;font-size: 18px">Xác suất ảnh cần xử lý bóng xương: <span id="bse_prob" style="color: red;font-size: 20px;padding-left: 50px">90%</span></p>
+	<p style="padding-left: 300px;font-size: 18px">Kết quả:</p>
+
+	<table>
+	  <tr>
+	    <th>Bệnh</th>
+	    <th>Xác suất mắc bệnh</th>
+	  </tr>
+	  <tr>
+	    <td>Bệnh 1</td>
+	    <td style="color: red">Xác suất 1</td>
+	  </tr>
+	  <tr>
+	    <td>Bệnh 2</td>
+	    <td>Xác suất 2</td>
+	  </tr>
+	    <tr>
+	    <td>Bệnh 3</td>
+	    <td>Xác suất 3</td>
+	  </tr>
+	</table>
+	<br>
+	<br>
+	<div align="center">
+		<figure>
+		<img src="demo.png" alt="Ảnh gốc">
+		<figcaption>Ảnh gốc</figcaption>
+		</figure>
+		<figure>
+		<img src="demo.png" alt="Ảnh xử lý loại bỏ bóng xương">
+		<figcaption>Ảnh xử lý loại bỏ bóng xương</figcaption>
+		</figure>
+		<figure>
+		<img src="demo.png" alt="Ảnh heatmap">
+		<figcaption>Ảnh heatmap</figcaption>
+		</figure>
+	</div>
+</div>
+
+
+
+<!-- -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../static/js/script.js"></script>
+<!-- -->
+</body>
+</html>
