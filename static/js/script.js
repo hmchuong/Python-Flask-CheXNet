@@ -18,8 +18,11 @@ $(function() {
             processData: false,
             async: true,
             success: function(data) {
+                console.log(data);
                 var prob = data.should_bse * 100;
                 $("#bse_prob").text(prob.toFixed(2)+"%");
+                $("#image_origin").attr("src",data.origin)
+                $("#image_bse").attr("src",data.bse)
                 $('#result').show();
             },
         });
