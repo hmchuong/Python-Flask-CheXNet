@@ -17,6 +17,7 @@ class AELikeModel:
         self.image_size = image_size
         self.alpha = alpha
         self.trained_model = trained_model
+        self.init_session()
 
     def calculate_loss_on_test(self, sess):
         """
@@ -102,7 +103,8 @@ class AELikeModel:
             print("Restore from model")
             if not self.trained_model is None:
                 saver.restore(sess, self.trained_model)
-        return (sess,saver)
+        self.sess = sess
+        #return (sess,saver)
 
     def get_loss(self, test_X_path_dir, test_Y_path_dir):
         self.test_X_images = np.array(read_test_images(test_X_path_dir, self.image_size))
@@ -197,8 +199,8 @@ class AELikeModel:
         """
         Test images
         """
-        tf.reset_default_graph()
-        sess, saver = self.init_session()
+        # tf.reset_default_graph()
+        # sess, saver = self.init_session()
         ds = None
         try:
             ds = cv2.imread(image_path)
@@ -210,10 +212,10 @@ class AELikeModel:
         except:
             print("Cannot test image {}".format(image_path))
             return
-        encoded_image = sess.run(self.Y, feed_dict={self.X: ds})
+        encoded_image = self.sess.run(self.Y, feed_dict={self.X: ds})
         encoded_image = encoded_image.reshape((self.image_size, self.image_size))
         imsave(output_path, encoded_image)
-        sess.close()
+        #sess.close()
 
         pil_image = Image.open(output_path).convert('RGB')
         bse_image = np.array(pil_image)#cv2.imread(image_path, 1)#cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
